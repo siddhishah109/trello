@@ -1,38 +1,164 @@
-.App {
-  text-align: center;
+body{
+  overflow-x: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title{
+  padding: 1vh 2vw;
+  font-family: "Galada", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: xx-large;
+  padding-top: 2vh;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navv{
   display: flex;
-  flex-direction: column;
+    flex-direction: row;
+    height: 6vh;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2vh;
+}
+.inner-nav{
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+}
+.hr-line{
+  width: 0.07vw;
+  background: rgba(0, 0, 0, 0.1);
+  height: 4vh;
+
+}
+.Search{
+
+}
+.searchbar{
+  display: flex;
+    align-items: center;
+    border-radius: 30px;
+    overflow: hidden;
+    border: 0;
+    height: 4vh;
+    background: #F4F4F4;
+    margin: 0vh 2vw;
+    width: 30vw;
+}
+.Boards{
+  padding: 0vh 2vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    img{
+      margin-right: 0.5vw;
+    }
+}
+.sidenav{
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  right: 0;
+  position: absolute;
+}
+.iconnav{
+  color: rgb(0,0,0,0.2);
+  margin: 7px;
+}
+
+.Bracketnav{
+  height: 5vh;
+  background-color: rgb(0,0,0,0.2);
+  width: 100vw;
+}
+
+
+
+.mainTitle{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  padding-left: 15px;
+  padding-right: 10px;
+  background: aqua;
+  font-size: x-large;
+  margin-bottom: 1vh;
+  
+}
+
+
+
+
+
+
+
+
+
+.board-container {
+  overflow-x: auto; 
+  min-height: 86vh;/* Enable horizontal scrolling */
+  padding: 0vh 3vw;
+}
+
+.board {
+  display: flex;
+  gap: 20px;
+  min-width: 100%; /* Ensure the board is at least as wide as the viewport */
+  width: 800px; /* Ensure the board is at least as wide as the viewport */
+}
+
+
+.column {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 250px;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: rgb(221, 25, 25);
+  flex-shrink: 0;
+  margin-top: 1vh;
+}
+
+.cards {
+  margin-top: 10px;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card:hover {
+  background-color: #f5f5f5;
+}
+
+.add-card {
+  margin-top: 10px;
+}
+
+.add-card input {
+  width: 80%;
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.add-card button {
+  padding: 5px 10px;
+  background-color: #61bd4f;
   color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.add-card button:hover {
+  background-color: #4d944d;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.drag-over {
+  background-color: #d3ffd3;
 }
