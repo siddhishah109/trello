@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import Header from '../components/Header';
-import MainCard from '../components/MainCard';
+
+
 import Column from '../components/Column';
 import { Modal, Button, Form } from 'react-bootstrap';
 
 const Brackets = () => {
   const [columns, setColumns] = useState([
-    { id: 1, title: 'To Do', cards: [] },
-    { id: 2, title: 'In Progress', cards: [] },
-    { id: 3, title: 'Done', cards: [] },
+    { id: 1, title: 'Design', cards: [{ id: 101, title: 'Old fashioned recipe for preventing allergies and chemical sensitivities' },{ id: 102, title: 'Home business advertising ideas', subtitle: 'Successful businesses know the importance of building and maintaining good working.' },{ id: 103, title: 'Cosmetic surgery abroad making the right choice',image:'/images/Photo1.png', }] },
+    { id: 3, title: 'Trello', cards: [{ id: 201, title: 'Home business advertising ideas', subtitle: 'Successful businesses know the importance of building and maintaining good working.', image: 'url-to-image-2' }]  },
+    { id: 4, title: 'Test', cards: [] },
   ]);
 
   const [showModal, setShowModal] = useState(false);
@@ -19,12 +20,23 @@ const Brackets = () => {
   const handleShow = () => setShowModal(true);
   const handleClose = () => setShowModal(false);
 
-  const addCard = (columnId, text) => {
+  const addCard = (columnId, cardContent) => {
+    const { title, subtitle, image } = cardContent;
+
     const updatedColumns = columns.map((column) => {
       if (column.id === columnId) {
         return {
           ...column,
-          cards: [...column.cards, { id: Date.now(), text }],
+          cards: [
+            ...column.cards,
+            {
+              id: Date.now(),
+              
+              title,
+              subtitle,
+              image,
+            },
+          ],
         };
       }
       return column;
@@ -66,7 +78,21 @@ const Brackets = () => {
 
     setColumns(updatedColumns);
   };
+  const editCard = (columnId, cardId) => {
+    const updatedColumns = columns.map((column) => {
+      if (column.id === columnId) {
+        return {
+          ...column,
+          cards: column.cards.map((card) =>
+            card.id === cardId ? { ...card, isEditing: true } : card
+          ),
+        };
+      }
+      return column;
+    });
 
+    setColumns(updatedColumns);
+  };
   const addColumn = () => {
     const newColumn = {
       id: Date.now(),
@@ -93,6 +119,7 @@ const Brackets = () => {
                   addCard={addCard}
                   moveCard={moveCard}
                   deleteCard={deleteCard}
+                  editCard={editCard}
                 />
               ))}
               <div className="add-column">

@@ -67,11 +67,39 @@ body{
 
 .Bracketnav{
   height: 5vh;
-  background-color: rgb(0,0,0,0.2);
-  width: 100vw;
+  width: 95vw;
+  display: flex;
+  margin: 0 3vw;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
 }
 
+.addcard{
+  text-align: center;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px dashed rgba(0, 0, 0, 0.2);
+  border-spacing: 5px;
+  cursor: pointer;
+  
+}
 
+.brac{
+  font-size: x-large;
+  font-weight: 500;
+  padding-right: 9vw;
+
+}
+
+.brbox{
+  display: flex!important;
+  align-items: center;
+}
 
 .mainTitle{
   display: flex;
@@ -80,17 +108,49 @@ body{
   border-radius: 10px;
   padding-left: 15px;
   padding-right: 10px;
-  background: aqua;
-  font-size: x-large;
+  background: #F4F4F4;
+  font-size: large;
   margin-bottom: 1vh;
+  font-family: sans-serif;
+  color: black;
+  font-weight: 400;
+  padding: 10px;
   
 }
 
+.cardtitle{
+  padding-left: 15px;
+    padding-right: 15px;
+    font-size: medium;
+    font-family: sans-serif;
+    font-weight: bold;
+}
 
 
+.image-container {
+  margin-top: 8px;
+  height: 200px;
+  align-items: center;
+  display: flex;
+  background: grey;
+  justify-content: center;
 
+  margin: 0 11px;
+  border-radius: 15px;
+}
 
+.image-container img {
+  max-width: 100%;
+  height: auto;
+}
 
+.cardcontent{
+  font-size: 14px;
+  font-family: sans-serif;
+  color: rgba(0, 0, 0, 0.4);
+  padding-left: 15px;
+  padding-right: 15px;
+}
 
 
 
@@ -109,11 +169,9 @@ body{
 
 
 .column {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 250px;
-  background-color: rgba(0, 0, 0, 0.2);
-  color: rgb(221, 25, 25);
+  border-radius: 10px;
+  width: 350px;
+  color: black;
   flex-shrink: 0;
   margin-top: 1vh;
 }
@@ -123,13 +181,11 @@ body{
 }
 
 .card {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  background-color: #F4F4F4;
+  border-radius: 10px;
   padding: 10px;
   margin-bottom: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+
 }
 
 .card:hover {
