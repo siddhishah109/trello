@@ -2,15 +2,14 @@ import React, { useState } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import Header from '../components/Header';
-
-
 import Column from '../components/Column';
 import { Modal, Button, Form } from 'react-bootstrap';
+import MobileHeader from '../components/MobileHeader';
 
 const Brackets = () => {
   const [columns, setColumns] = useState([
     { id: 1, title: 'Design', cards: [{ id: 101, title: 'Old fashioned recipe for preventing allergies and chemical sensitivities' },{ id: 102, title: 'Home business advertising ideas', subtitle: 'Successful businesses know the importance of building and maintaining good working.' },{ id: 103, title: 'Cosmetic surgery abroad making the right choice',image:'/images/Photo1.png', }] },
-    { id: 3, title: 'Trello', cards: [{ id: 201, title: 'Home business advertising ideas', subtitle: 'Successful businesses know the importance of building and maintaining good working.', image: 'url-to-image-2' }]  },
+    { id: 3, title: 'Trello', cards: [{ id: 201, title: 'Home business advertising ideas', subtitle: 'Successful businesses know the importance of building and maintaining good working.' },{ id: 202, title: 'Unmatched toner cartridge quality 20 less than oem price',subtitle:'Why read motivational sayings? For motivation! You might need a bit, if you can use last year’s list of goals this year because it’s as good as new.',image:'/images/Rectangle1.png', },{ id: 203, title: 'Cosmetic surgery abroad making the right choice',image:'/images/Rectangle2.png', }]  },
     { id: 4, title: 'Test', cards: [] },
   ]);
 
@@ -108,6 +107,7 @@ const Brackets = () => {
   return (
     <div>
       <Header />
+      <MobileHeader/>
       <div className="board-container">
         <DndProvider backend={HTML5Backend}>
           <div className="app">

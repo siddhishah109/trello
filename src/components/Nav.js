@@ -22,7 +22,7 @@ const Nav = () => {
             <div><AddCircleOutlineRoundedIcon className='iconnav' />
             <NotificationsOutlinedIcon className='iconnav'/> 
             <ErrorOutlineRoundedIcon className='iconnav'/></div>
-            <div><img src={user} style={{margin:'5px',height:'5vh',marginRight:'8px'}}/></div>
+            <div><img src={user} style={{margin:'5px',height:'5vh',marginRight:'2vw'}}/></div>
             </div>
      
         </div>

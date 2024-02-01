@@ -152,6 +152,9 @@ body{
   padding-right: 15px;
 }
 
+.menu{
+  padding-left: 3vw;
+}
 
 
 .board-container {
@@ -163,6 +166,7 @@ body{
 .board {
   display: flex;
   gap: 20px;
+  margin-bottom: 5vh;
   min-width: 100%; /* Ensure the board is at least as wide as the viewport */
   width: 800px; /* Ensure the board is at least as wide as the viewport */
 }
@@ -217,4 +221,68 @@ body{
 
 .drag-over {
   background-color: #d3ffd3;
+}
+
+/* responsive */
+
+.mobile-nav {
+  display: none; /* Hide mobile navigation bar by default */
+}
+.inner-mobile-nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 4vw;
+}
+.mob-nav-user{
+   padding: 6px;
+}
+.mob-nav-end{
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .navv {
+    display: none; /* Hide the regular navigation bar on small screens */
+  }
+
+  .mobile-nav {
+    display: block; /* Show mobile navigation bar on small screens */
+  }
+}
+
+.menu-mob{
+  padding-left: 2vw;
+  padding-right: 4vw;
+}
+
+.mobile-header {
+  display: none; /* Hide mobile header by default */
+}
+
+@media (max-width: 768px) {
+  .Bracketnav {
+    display: none; /* Hide the regular header on small screens */
+  }
+.column{
+  
+  width: 90vw!important;
+ 
+  margin-left: 2vw !important;
+}
+  .mobile-header {
+    display: block; /* Show mobile header on small screens */
+  }
+}
+
+.brac-mob{
+  font-size: x-large;
+  font-weight: 500;
+  padding-right: 9vw;
+  padding-left: 4vw;
+}
+.mob-head-icon{
+  padding-left: 4vw;
+  padding-top: 1vh;
 }
