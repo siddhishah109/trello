@@ -12,7 +12,7 @@ const MobileHeader = () => {
       <div className='brbox'>
         <div className='brac-mob'>Brackets </div>
       </div>
-      <div className='d-flex mob-head-icon'>
+      <div className='d-flex mob-head-icon justify-content-between'>
       <div className='d-flex'>
       <FavoriteBorderIcon style={{ margin: '2px' }} />
       <div className='hr-line'/>
@@ -20,7 +20,7 @@ const MobileHeader = () => {
      <div className='hr-line'/>
         <ShoppingBasketOutlinedIcon style={{ margin: '2px' }} />
       </div>
-       <div className='d-flex'> 
+       <div className='d-flex '> 
        <img src={user} alt="User Profile" style={{height:'4vh'}}/>
         <div className='menu-mob'>Menu</div></div>
       </div>

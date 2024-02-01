@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { useDrop } from 'react-dnd';
 import Card from './Card';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import { Modal, Button, Form } from 'react-bootstrap';
+import { Modal, Button, Form, Dropdown } from 'react-bootstrap';
 
-const Column = ({ column, addCard, moveCard, deleteCard , editCard}) => {
-
+const Column = ({ column, addCard, moveCard, deleteCard,deleteColumn, editCard }) => {
   const [newCardTitle, setNewCardTitle] = useState('');
   const [newCardSubtitle, setNewCardSubtitle] = useState('');
   const [newCardImage, setNewCardImage] = useState(null);
@@ -27,7 +26,6 @@ const Column = ({ column, addCard, moveCard, deleteCard , editCard}) => {
         subtitle: newCardSubtitle,
         image: newCardImage,
       });
-      console.log(newCardImage)
       setNewCardTitle('');
       setNewCardSubtitle('');
       setNewCardImage(null);
@@ -36,7 +34,7 @@ const Column = ({ column, addCard, moveCard, deleteCard , editCard}) => {
   };
 
   const handleCardDrop = (cardId) => {
-    moveCard(column.id, column.id, cardId);
+    moveCard(column.id, cardId);
   };
 
   const handleCloseModal = () => {
@@ -53,15 +51,28 @@ const Column = ({ column, addCard, moveCard, deleteCard , editCard}) => {
       reader.readAsDataURL(file);
     }
   };
+
   const handleEditCard = (cardId, updatedData) => {
-    // Implement your logic to update the card data
     editCard(column.id, cardId, updatedData);
+  };
+
+  const handleDeleteColumn = () => {
+    deleteColumn(column.id);
   };
 
   return (
     <div ref={drop} className="column" style={{ height: '100%' }}>
       <div className='mainTitle'>
-        {column.title} <MoreHorizIcon/>
+        {column.title}
+        <Dropdown>
+          <Dropdown.Toggle variant="light" id="dropdown-basic" className="no-arrow">
+            <MoreHorizIcon />
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Dropdown.Item onClick={handleDeleteColumn}>Delete Column</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
       </div>
 
       <div className="cards">
@@ -72,6 +83,7 @@ const Column = ({ column, addCard, moveCard, deleteCard , editCard}) => {
             onDrop={() => handleCardDrop(card.id)}
             onDelete={() => deleteCard(column.id, card.id)}
             onEdit={(updatedData) => handleEditCard(card.id, updatedData)}
+            isEditing={card.isEditing || false}
           />
         ))}
       </div>

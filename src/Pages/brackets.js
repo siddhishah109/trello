@@ -10,7 +10,7 @@ const Brackets = () => {
   const [columns, setColumns] = useState([
     { id: 1, title: 'Design', cards: [{ id: 101, title: 'Old fashioned recipe for preventing allergies and chemical sensitivities' },{ id: 102, title: 'Home business advertising ideas', subtitle: 'Successful businesses know the importance of building and maintaining good working.' },{ id: 103, title: 'Cosmetic surgery abroad making the right choice',image:'/images/Photo1.png', }] },
     { id: 3, title: 'Trello', cards: [{ id: 201, title: 'Home business advertising ideas', subtitle: 'Successful businesses know the importance of building and maintaining good working.' },{ id: 202, title: 'Unmatched toner cartridge quality 20 less than oem price',subtitle:'Why read motivational sayings? For motivation! You might need a bit, if you can use last year’s list of goals this year because it’s as good as new.',image:'/images/Rectangle1.png', },{ id: 203, title: 'Cosmetic surgery abroad making the right choice',image:'/images/Rectangle2.png', }]  },
-    { id: 4, title: 'Test', cards: [] },
+    { id: 4, title: 'Test', cards: [{ id: 301, title: 'Types of paper in catalog printing',subtitle:'Branding is no longer simply about visual appeal (or the cherry in the apple pie example, as given in my earlier article).',image:'/images/Photo2.png', },{ id: 302, title: 'There is no competition' ,subtitle:'This article is floated online with an aim to help you find the best dvd printing solution.'}] },
   ]);
 
   const [showModal, setShowModal] = useState(false);
@@ -30,7 +30,6 @@ const Brackets = () => {
             ...column.cards,
             {
               id: Date.now(),
-              
               title,
               subtitle,
               image,
@@ -63,7 +62,10 @@ const Brackets = () => {
 
     setColumns(updatedColumns);
   };
-
+  const deleteColumn = (columnId) => {
+    const updatedColumns = columns.filter((column) => column.id !== columnId);
+    setColumns(updatedColumns);
+  }; 
   const deleteCard = (columnId, cardId) => {
     const updatedColumns = columns.map((column) => {
       if (column.id === columnId) {
@@ -77,13 +79,13 @@ const Brackets = () => {
 
     setColumns(updatedColumns);
   };
-  const editCard = (columnId, cardId) => {
+  const editCard = (columnId, cardId, updatedData) => {
     const updatedColumns = columns.map((column) => {
       if (column.id === columnId) {
         return {
           ...column,
           cards: column.cards.map((card) =>
-            card.id === cardId ? { ...card, isEditing: true } : card
+            card.id === cardId ? { ...card, ...updatedData, isEditing: false } : card
           ),
         };
       }
@@ -91,7 +93,9 @@ const Brackets = () => {
     });
 
     setColumns(updatedColumns);
+    console.log(updatedColumns)
   };
+
   const addColumn = () => {
     const newColumn = {
       id: Date.now(),
@@ -120,6 +124,7 @@ const Brackets = () => {
                   moveCard={moveCard}
                   deleteCard={deleteCard}
                   editCard={editCard}
+                  deleteColumn={deleteColumn}
                 />
               ))}
               <div className="add-column">

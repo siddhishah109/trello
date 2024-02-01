@@ -73,6 +73,7 @@ body{
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 2vh;
 
 }
 
@@ -134,7 +135,7 @@ body{
   display: flex;
   background: grey;
   justify-content: center;
-
+  margin-bottom: 2vh;
   margin: 0 11px;
   border-radius: 15px;
 }
@@ -223,6 +224,14 @@ body{
   background-color: #d3ffd3;
 }
 
+.add-column{
+  min-width: 8vw;
+  margin-top: 2vh;
+
+}
+.no-arrow::after {
+  display: none !important;
+}
 /* responsive */
 
 .mobile-nav {
@@ -249,6 +258,11 @@ body{
 
   .mobile-nav {
     display: block; /* Show mobile navigation bar on small screens */
+  }
+  .add-column{
+    min-width: 40vw!important;
+
+  
   }
 }
 
